@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | RoadTrip</title>
+
+    <!-- Font Awesome (icons like your footer) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: cursive;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(
+                rgba(1,34,52,0.85),
+                rgba(1,34,52,0.85)
+            ),
+            url("images/models/menwear.png") no-repeat center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            width: 380px;
+            background-color: rgb(25, 42, 57);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            animation: fadeUp 1s ease;
+        }
+
+        .login-box h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .login-box p {
+            text-align: center;
+            color: #b5adad;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .input-group i {
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            transform: translateY(-50%);
+            color: #b5adad;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 12px 12px 40px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .input-group input:focus {
+            box-shadow: 0 0 0 2px #336885;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #336885;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #0c5a99;
+            transform: translateY(-2px);
+        }
+
+        .extras {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .extras a {
+            color: #b5adad;
+            text-decoration: none;
+        }
+
+        .extras a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .back-home {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back-home a {
+            color: #336885;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-home a:hover {
+            color: white;
+        }
+
+        /* Animation */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .login-box {
+                width: 90%;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>Welcome Back 🕶</h2>
+        <p>Login to explore premium sunglasses</p>
+
+        <form>
+            <div class="input-group">
+                <i class="fa fa-envelope"></i>
+                <input type="email" placeholder="Email address" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa fa-lock"></i>
+                <input type="password" placeholder="Password" required>
+            </div>
+
+            <button class="login-btn" type="submit">Login</button>
+
+            <div class="extras">
+                <p><a href="forgot-password.html">Forgot Password?</a></p>
+                <p>New here? <a href="signup.html">Create Account</a></p>
+            </div>
+
+            <div class="back-home">
+                <a href="index.html">← Back to Home</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+    document.querySelector("form").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const email = document.querySelector("input[type='email']").value.trim();
+        const password = document.querySelector("input[type='password']").value;
+
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+
+        const validUser = users.find(user =>
+            user.email === email && user.password === password
+        );
+
+        if (validUser) {
+            alert("Login successful 😎");
+            window.location.href = "index.html";
+        } else {
+            alert("Invalid email or password!");
+        }
+    });
+</script>
+
+</body>
+</html>

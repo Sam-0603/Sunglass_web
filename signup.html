@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | RoadTrip</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: cursive;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(
+                rgba(1,34,52,0.85),
+                rgba(1,34,52,0.85)
+            ),
+            url("images/models/menwear.png") no-repeat center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .signup-box {
+            width: 420px;
+            background-color: rgb(25, 42, 57);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            animation: fadeUp 1s ease;
+        }
+
+        .signup-box h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .signup-box p {
+            text-align: center;
+            color: #b5adad;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .input-group i {
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            transform: translateY(-50%);
+            color: #b5adad;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 12px 12px 40px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .input-group input:focus {
+            box-shadow: 0 0 0 2px #336885;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #336885;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .signup-btn:hover {
+            background-color: #0c5a99;
+            transform: translateY(-2px);
+        }
+
+        .extras {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .extras a {
+            color: #b5adad;
+            text-decoration: none;
+        }
+
+        .extras a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .message {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .success {
+            color: #2ecc71;
+        }
+
+        .error {
+            color: #ff7675;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .signup-box {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="signup-box">
+        <h2>Create Account 🕶️</h2>
+        <p>Join us for premium sunglasses</p>
+
+        <form id="signupForm">
+            <div class="input-group">
+                <i class="fa fa-user"></i>
+                <input type="text" id="name" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa fa-envelope"></i>
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa fa-lock"></i>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+
+            <button type="submit" class="signup-btn">Sign Up</button>
+
+            <div class="message" id="message"></div>
+
+            <div class="extras">
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const message = document.getElementById("message");
+
+            if (password !== confirmPassword) {
+                message.textContent = "Passwords do not match!";
+                message.className = "message error";
+                return;
+            }
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            const userExists = users.some(user => user.email === email);
+
+            if (userExists) {
+                message.textContent = "User already exists!";
+                message.className = "message error";
+                return;
+            }
+
+            users.push({ name, email, password });
+            localStorage.setItem("users", JSON.stringify(users));
+
+            message.textContent = "Signup successful! Redirecting to login...";
+            message.className = "message success";
+
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 1500);
+        });
+    </script>
+
+</body>
+</html>
