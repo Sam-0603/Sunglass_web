@@ -302,29 +302,69 @@ button:active {
     font-size: 30px;
     font-weight: 700;
 }
+.avail-product {
+    width: 100%;
+    max-width: 100%;
+    max-height: auto;
+    text-align: center;
+    padding: 0px 20px 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .avail-product a {
     text-decoration: none;
     color: #000;
     font-size: 20px;
     font-weight: 700;
 }
-
-.avail-product img {
-    height: 250px;
-}
-
-.cards {
-    margin: 20px;
+.avail-product .img-box{
+    height: 200px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+}
+.avail-product img {
+    height: auto;
+    max-width: 100%;
+    max-height: 180px;  
+    object-fit: contain;
+}
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: space-evenly;
+    gap: 60px;
+    width: 100%;
+}
+.cards-sec {
+    background: #ffffff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+}
+.cards-sec img {
+    width: 100%;
+    max-height: 240px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px;
+}
+.cards-sec:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+}
+.cards a {
+    text-decoration: none;
 }
 
 .cards-sec p {
     text-align: center;
     padding: 10px;
-}
-.women{
-    margin-left: 70px;
 }
 .footer {
     color: #f8f8f8;
@@ -333,16 +373,22 @@ button:active {
 
 .footer-content {
     background-color: rgb(25,42,57);
-    height: 250px;
+    height: auto;
     display: flex;
-    padding-top: 30px;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: center;
+    padding: 40px 20px;
+    /* justify-content: space-evenly; */
 }
 
 #logo {
     height: 50px;
 }
-
+.foot-sections{
+    flex: 1 1 200px;
+    min-width: 200px;
+}
 .foot-sections ul {
     list-style-type: none;
     padding-left: 30px;
@@ -367,6 +413,8 @@ button:active {
     border-radius: 30%;
     box-shadow: 2px 3px white;
     transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    margin: 10px;
 }
 .foot-sections i:hover {
     transform: scale(1.2) rotate(5deg);
@@ -420,6 +468,21 @@ button:active {
     header {
         text-align: center;
     }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .cards-sec{
+        max-width: 100%;
+    }
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .foot-sections ul {
+        padding-left: 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -429,6 +492,13 @@ button:active {
     }
 
     .text-container p {
+        font-size: 14px;
+    }
+    .avail-product img {
+        max-height: 180px;
+    }
+
+    .footer p {
         font-size: 14px;
     }
 }
