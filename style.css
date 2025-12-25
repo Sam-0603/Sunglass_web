@@ -27,7 +27,7 @@
 }
 
 .nav-sec img {
-    margin-right: 300px;
+    margin-right: 0;
     height: 50px;
 }
 
@@ -59,21 +59,12 @@
     background-size: cover;
     background-color: #012234;
     height: 700px;
-    animation: slowzoom 20s ease-in-out infinite alternate;
+    animation: slowZoom 20s ease-in-out infinite alternate;
 }
 @keyframes slowZoom {
     from { background-size: 100%; }
     to { background-size: 110%; }
 }
-@media (max-width: 768px) {
-    .product-image img,
-    .column img,
-    .avail-product img {
-        transform: none !important;
-    }
-}
-
-
 
 .content {
 
@@ -100,7 +91,7 @@ button {
     margin: 40px;
     height: 50px;
     width: 100px;
-    mix-blend-mode: color-dodge;
+    mix-blend-mode: normal;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -144,13 +135,11 @@ button:active {
 }
 
 .products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    background-color: rgb(25, 42, 57);
-    padding: 0px 20px;
-    height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 80px;
+    padding: 70px 80px;
+    background-color: #f7f7f7;
 }
 
 /* NEW Card Css */
@@ -212,9 +201,7 @@ button:active {
     align-items: center;
     overflow: hidden;
 }
-/* .product-image:hover{ */
-    /* transform: scale(1); */
-/* } */
+
 .product-image img {
     width: 80%;
     transition: 0.6s ease;
@@ -242,38 +229,67 @@ button:active {
 
 /* Mobile */
 @media (max-width: 480px) {
-    .new-products {
-        padding: 40px 20px;
-    }
-
     .product-info h3 {
         font-size: 22px;
+    }
+    .column {
+        padding: 20px;
+    }
+
+    .text-container p {
+        font-size: 14px;
     }
 }
 /* NEW Card CSS ends */
 .column{
-    width: 220px;
+    background: #84939d;
+    border-radius: 22px;
+    padding: 25px 20px 30px;
     text-align: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: all 0.6s cubic-bezier(.19,1,.22,1);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    cursor: pointer;
+    align-items: normal;
+    max-width: 100%;
+    position: relative;
 }
+.column::after {
+    content: "";
+    inset: 0;
+    border-radius: 22px;
+    background: linear-gradient(120deg, transparent, rgba(106, 101, 101, 0.558), transparent);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.column:hover::after {
+    opacity: 1;
+}
+
 .column img {
-    color: white;
-    transition: transform 0.4s ease;
-    margin: 40px 70px 0 40px;
-    height: 100px;
+    height: 120px;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 20px auto;
+    display: block;
+    transition: transform 1.6s cubic-bezier(.19,1,.22,1);
 }
 .column:hover img {
-    transform: scale(1.1);
+    transform: scale(1.12);
 }
 .column:hover{
-    transition: 0.7s;
-    transform: translateY(-12px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    transform: translateY(-10px);
+    box-shadow: 0 22px 50px rgba(0,0,0,0.15);
 }
 
 .text-container {
-    padding: 10px 0 0 20px;
-    color: #fff;
+     margin-top: 15px;
+    color: #111;
+}
+.text-container p {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .text-container:hover {
@@ -394,15 +410,13 @@ button:active {
         gap: 15px;
         padding: 15px;
     }
-
     .products {
-        gap: 20px;
+        padding: 30px 20px;
+        gap: 25px;
     }
-
-    .column {
-        width: 160px;
+    .column img {
+        height: 90px;
     }
-
     header {
         text-align: center;
     }
