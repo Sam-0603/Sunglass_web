@@ -1,203 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | RoadTrip</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | RoadTrip</title>
 
-    <!-- Font Awesome (icons like your footer) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: cursive;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
 
-        body {
-            min-height: 100vh;
-            background: linear-gradient(
-                rgba(1,34,52,0.85),
-                rgba(1,34,52,0.85)
-            ),
-            url("images/models/menwear.png") no-repeat center;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+body {
+    min-height: 100vh;
+    background: linear-gradient(rgba(1,34,52,0.85), rgba(1,34,52,0.85)),
+    url("images/models/menwear.png") no-repeat center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .login-box {
-            width: 380px;
-            background-color: rgb(25, 42, 57);
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            animation: fadeUp 1s ease;
-        }
+.login-box {
+    width: 380px;
+    background: rgb(25, 42, 57);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    animation: fadeUp 1s ease;
+}
 
-        .login-box h2 {
-            text-align: center;
-            color: white;
-            margin-bottom: 10px;
-        }
+.login-box h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 8px;
+}
 
-        .login-box p {
-            text-align: center;
-            color: #b5adad;
-            margin-bottom: 25px;
-            font-size: 14px;
-        }
+.login-box p {
+    text-align: center;
+    color: #b5adad;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
 
-        .input-group {
-            margin-bottom: 18px;
-            position: relative;
-        }
+.input-group {
+    margin-bottom: 18px;
+    position: relative;
+}
 
-        .input-group i {
-            position: absolute;
-            top: 50%;
-            left: 12px;
-            transform: translateY(-50%);
-            color: #b5adad;
-        }
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #b5adad;
+}
 
-        .input-group input {
-            width: 100%;
-            padding: 12px 12px 12px 40px;
-            border-radius: 8px;
-            border: none;
-            outline: none;
-            font-size: 14px;
-        }
+.input-group input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
 
-        .input-group input:focus {
-            box-shadow: 0 0 0 2px #336885;
-        }
+.input-group input:focus {
+    box-shadow: 0 0 0 2px #336885;
+}
 
-        .login-btn {
-            width: 100%;
-            padding: 12px;
-            margin-top: 10px;
-            background-color: #336885;
-            border: none;
-            border-radius: 10px;
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+/* LOGIN BUTTON */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: #336885;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        .login-btn:hover {
-            background-color: #0c5a99;
-            transform: translateY(-2px);
-        }
+.login-btn:hover {
+    background: #0c5a99;
+    transform: translateY(-2px);
+}
 
-        .extras {
-            text-align: center;
-            margin-top: 15px;
-            font-size: 14px;
-        }
+.extras {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
 
-        .extras a {
-            color: #b5adad;
-            text-decoration: none;
-        }
+.extras a {
+    color: #b5adad;
+    text-decoration: none;
+}
 
-        .extras a:hover {
-            color: white;
-            text-decoration: underline;
-        }
+.extras a:hover {
+    color: white;
+}
 
-        .back-home {
-            margin-top: 20px;
-            text-align: center;
-        }
+.back-home {
+    text-align: center;
+    margin-top: 20px;
+}
 
-        .back-home a {
-            color: #336885;
-            text-decoration: none;
-            font-weight: 600;
-        }
+.back-home a {
+    color: #336885;
+    text-decoration: none;
+    font-weight: 600;
+}
 
-        .back-home a:hover {
-            color: white;
-        }
+.back-home a:hover {
+    color: white;
+}
 
-        /* Animation */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        /* Responsive */
-        @media (max-width: 480px) {
-            .login-box {
-                width: 90%;
-                padding: 30px;
-            }
-        }
-    </style>
+@media (max-width: 480px) {
+    .login-box { width: 90%; }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="login-box">
-        <h2>Welcome Back 🕶</h2>
-        <p>Login to explore premium sunglasses</p>
+<div class="login-box">
+    <h2>Welcome Back 🕶</h2>
+    <p>Login to explore premium sunglasses</p>
 
-        <form>
-            <div class="input-group">
-                <i class="fa fa-envelope"></i>
-                <input type="email" placeholder="Email address" required>
-            </div>
+    <!-- LOGIN FORM -->
+    <form id="loginForm">
 
-            <div class="input-group">
-                <i class="fa fa-lock"></i>
-                <input type="password" placeholder="Password" required>
-            </div>
+        <div class="input-group">
+            <i class="fa fa-envelope"></i>
+            <input type="email" id="email" placeholder="Email address" required>
+        </div>
 
-            <button class="login-btn" type="submit">Login</button>
+        <div class="input-group">
+            <i class="fa fa-lock"></i>
+            <input type="password" id="password" placeholder="Password" required>
+        </div>
 
-            <div class="extras">
-                <p><a href="forgot-password.html">Forgot Password?</a></p>
-                <p>New here? <a href="signup.html">Create Account</a></p>
-            </div>
+        <!-- ✅ LOGIN BUTTON ADDED -->
+        <button type="submit" class="login-btn">Login</button>
 
-            <div class="back-home">
-                <a href="index.html">← Back to Home</a>
-            </div>
-        </form>
-    </div>
+        <div class="extras">
+            <p><a href="forgot-password.html">Forgot Password?</a></p>
+            <p>New here? <a href="signup.html">Create Account</a></p>
+        </div>
 
-    <script>
-    document.querySelector("form").addEventListener("submit", function(e) {
-        e.preventDefault();
+        <div class="back-home">
+            <a href="index.html">← Back to Home</a>
+        </div>
 
-        const email = document.querySelector("input[type='email']").value.trim();
-        const password = document.querySelector("input[type='password']").value;
+    </form>
+</div>
 
-        const users = JSON.parse(localStorage.getItem("users")) || [];
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-        const validUser = users.find(user =>
-            user.email === email && user.password === password
-        );
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
 
-        if (validUser) {
-            alert("Login successful 😎");
-            window.location.href = "index.html";
-        } else {
-            alert("Invalid email or password!");
-        }
-    });
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const validUser = users.find(
+        user => user.email === email && user.password === password
+    );
+
+    if (validUser) {
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("currentUser", email);
+        alert("Login successful 😎");
+        window.location.href = "index.html";
+    } else {
+        alert("Invalid email or password!");
+    }
+});
 </script>
 
 </body>

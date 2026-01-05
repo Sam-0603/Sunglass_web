@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Your Cart | Sunglasses Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* CART PAGE ONLY STYLES */
+.cart-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.cart-title {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #012234;
+  text-align: center;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.cart-table th {
+  background: #012234;
+  color: white;
+}
+
+.cart-table img {
+  width: 80px;
+}
+
+.remove-btn {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cart-summary {
+  margin-top: 30px;
+  text-align: right;
+}
+
+.cart-summary h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.checkout-btn {
+  margin-top: 20px;
+  padding: 14px 30px;
+  background: #012234;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.checkout-btn:hover {
+  background: #336885;
+}
+
+/* Empty Cart */
+.empty-cart {
+  text-align: center;
+  font-size: 22px;
+  color: gray;
+  margin-top: 50px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cart-table th, .cart-table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .cart-summary {
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cart-container">
+  <h1 class="cart-title">🛒 Your Cart</h1>
+
+  <table class="cart-table" id="cartTable">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody id="cartBody"></tbody>
+  </table>
+
+  <p class="empty-cart" id="emptyCart">Your cart is empty 😔</p>
+
+  <div class="cart-summary" id="cartSummary">
+    <h2>Total: ₹<span id="totalPrice">0</span></h2>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+</div>
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+document.querySelectorAll(".add-cart-btn").forEach(btn => {
+
+  btn.addEventListener("click", (e) => {
+
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    console.log("Cart login check:", isLoggedIn); // DEBUG
+
+    if (isLoggedIn !== "yes") {
+      alert("Please login to add items to cart");
+      window.location.href = "login.html";
+      return;
+    }
+
+    const card = e.target.closest(".product-card");
+
+    const product = {
+      name: card.dataset.name,
+      price: card.dataset.price
+    };
+
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("Item added to cart 🛒");
+  });
+
+});
+</script>
+
+
+</body>
+</html>

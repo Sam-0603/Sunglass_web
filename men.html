@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Men's Collection</title>
+<link rel="icon" href="images/logo.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+
+<body>
+
+<!-- NAVBAR (reuse from index.html) -->
+<div class="nav-sec">
+  <img src="images/logo.png">
+  <a href="index.html">Home</a>
+  <a href="#">Men</a>
+  <a href="women.html">Women</a>
+  <a href="kids.html">Kids</a>
+  <a href="cart.html" id="cartBtn">🛒 Cart</a>
+  <a href="#" id="logoutBtn">Logout</a>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="collection-hero men-hero">
+  <h1>Men's Sunglasses</h1>
+  <p>Bold • Premium • Polarized</p>
+</section>
+
+<div class="filter-sort-bar">
+
+  <select id="filterType">
+    <option value="all">All Types</option>
+    <option value="polarized">Polarized</option>
+    <option value="uv">UV Protected</option>
+  </select>
+
+  <select id="sortProducts">
+    <option value="default">Sort By</option>
+    <option value="price-low">Price: Low to High</option>
+    <option value="price-high">Price: High to Low</option>
+    <option value="name">Name (A-Z)</option>
+  </select>
+
+</div>
+
+
+<!-- PRODUCTS -->
+<section class="new-products">
+  
+  <div class="product-card"
+   data-price="899" 
+     data-name="RoadTrip Shades"
+     data-type="polarized">
+    <span class="badge">NEW</span>
+    <div class="product-image">
+      <img src="images/sunglass/clubmaster2.png">
+    </div>
+    <div class="product-info">
+      <h3>RoadTrip Shades</h3>
+      <p>UV Protected · Polarized</p>
+      <strong>₹899</strong>
+
+    <button class="add-cart-btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="product-card"
+   data-price="1099" 
+     data-name="RoadTrip Shades"
+     data-type="polarized">
+    <span class="badge">HOT</span>
+    <div class="product-image">
+      <img src="images/sunglass/hexagonal.png">
+    </div>
+    <div class="product-info">
+      <h3>Hexagon Pro</h3>
+      <p>Metal Frame · UV400</p>
+      <strong>₹1099</strong>
+
+    <button class="add-cart-btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="product-card"
+   data-price="1499" 
+     data-name="RoadTrip Shades"
+     data-type="polarized">
+    <span class="badge">COOL</span>
+    <div class="product-image">
+      <img src="images/sunglass/roundmetal.png">
+    </div>
+    <div class="product-info">
+      <h3>Urban Classic</h3>
+      <p>Lightweight · Polarized</p>
+      <strong>₹1499</strong>
+
+    <button class="add-cart-btn">Add to Cart</button>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOOTER (reuse) -->
+<footer class="footer-content">
+  <p>© 2025 Sunglasses Store</p>
+</footer>
+
+<script src="pages.js"></script>
+<script src="navbar.js"></script>
+</body>
+</html>

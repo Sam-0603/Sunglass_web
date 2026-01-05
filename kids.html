@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kids Collection</title>
+<link rel="icon" href="images/logo.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+
+<body>
+
+<!-- NAVBAR (reuse from index.html) -->
+<div class="nav-sec">
+  <img src="images/logo.png">
+  <a href="index.html">Home</a>
+  <a href="men.html">Men</a>
+  <a href="women.html">Women</a>
+  <a href="#">Kids</a>
+  <a href="cart.html" id="cartBtn">🛒 Cart</a>
+  <a href="#" id="logoutBtn">Logout</a>
+</div>
+<section class="collection-hero kids-hero">
+  <h1>Kids Sunglasses</h1>
+  <p>Safe • Colorful • Fun</p>
+</section>
+
+<div class="filter-sort-bar">
+
+  <select id="filterType">
+    <option value="all">All Types</option>
+    <option value="polarized">Polarized</option>
+    <option value="uv">UV Protected</option>
+  </select>
+
+  <select id="sortProducts">
+    <option value="default">Sort By</option>
+    <option value="price-low">Price: Low to High</option>
+    <option value="price-high">Price: High to Low</option>
+    <option value="name">Name (A-Z)</option>
+  </select>
+
+</div>
+
+
+<section class="new-products">
+  <div class="product-card"  
+        data-price="1499" 
+        data-name="RoadTrip Shades"
+        data-type="uv">
+    <span class="badge">NEW</span>
+    <div class="product-image">
+      <img src="images\sunglass\kidsglasses\yellow.png" height="140px" alt="Sunny Fun">
+    </div>
+    <div class="product-info">
+      <h3>Sunny Fun</h3>
+      <p>UV Safe · Lightweight</p>
+      <strong>₹1499</strong>
+
+      <button class="add-cart-btn">Add to Cart</button>
+    </div>
+  </div>
+   <div class="product-card"
+        data-price="1099" 
+        data-name="RoadTrip Shades"
+        data-type="polarized">
+   <span class="badge">COLORFUL</span>
+   <div class="product-image">
+     <img src="images\sunglass\kidsglasses\rounded.png">
+   </div>
+   <div class="product-info">
+     <h3>Round Fun</h3>
+     <p>UV Safe · Lightweight</p>
+     <strong>₹1099</strong>
+
+     <button class="add-cart-btn">Add to Cart</button>
+   </div>
+ </div>
+</section>
+
+<footer class="footer-content">
+  <p>© 2025 Sunglasses Store</p>
+</footer>
+
+
+<script src="pages.js"></script>
+<script src="navbar.js"></script>
+</body>
+</html>

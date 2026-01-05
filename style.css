@@ -502,3 +502,33 @@ button:active {
         font-size: 14px;
     }
 }
+
+
+/* Hero Section of collection pages */
+.collection-hero {
+  height: 280px;
+  background: linear-gradient(135deg, #012234, #081c2e);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.collection-hero h1 {
+  font-size: 48px;
+}
+
+.collection-hero p {
+  font-size: 18px;
+  margin-top: 10px;
+  opacity: 0.85;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .collection-hero h1 {
+    font-size: 34px;
+  }
+}

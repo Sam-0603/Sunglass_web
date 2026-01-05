@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Women's Collection</title>
+<link rel="icon" href="images/logo.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+
+<body>
+
+<!-- NAVBAR (reuse from index.html) -->
+<div class="nav-sec">
+  <img src="images/logo.png">
+  <a href="index.html">Home</a>
+  <a href="men.html">Men</a>
+  <a href="#">Women</a>
+  <a href="kids.html">Kids</a>
+  <a href="cart.html" id="cartBtn">🛒 Cart</a>
+  <a href="#" id="logoutBtn">Logout</a>
+</div>
+
+<section class="collection-hero women-hero">
+  <h1>Women's Sunglasses</h1>
+  <p>Elegant • Stylish • Trendy</p>
+</section>
+
+<div class="filter-sort-bar">
+
+  <select id="filterType">
+    <option value="all">All Types</option>
+    <option value="polarized">Polarized</option>
+    <option value="uv">UV Protected</option>
+  </select>
+
+  <select id="sortProducts">
+    <option value="default">Sort By</option>
+    <option value="price-low">Price: Low to High</option>
+    <option value="price-high">Price: High to Low</option>
+    <option value="name">Name (A-Z)</option>
+  </select>
+
+</div>
+
+
+<section class="new-products">
+  <div class="product-card"
+   data-price="999" 
+     data-name="RoadTrip Shades"
+     data-type="polarized">
+    <span class="badge">NEW</span>
+    <div class="product-image">
+      <img src="images/sunglass/womenglasses/cateye.png">
+    </div>
+    <div class="product-info">
+      <h3>Cat Eye Glam</h3>
+      <p>Fashion · UV Protection</p>
+      <strong>₹999</strong>
+
+    <button class="add-cart-btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="product-card"
+   data-price="1199" 
+     data-name="RoadTrip Shades"
+     data-type="polarized">
+    <span class="badge">HOT</span>
+    <div class="product-image">
+      <img src="images/sunglass/womenglasses/image.png">
+    </div>
+    <div class="product-info">
+      <h3>Urban Diva</h3>
+      <p>Oversized · Polarized</p>
+      <strong>₹1199</strong>
+
+    <button class="add-cart-btn">Add to Cart</button>
+    </div>
+  </div>
+</section>
+<footer class="footer-content">
+  <p>© 2025 Sunglasses Store</p>
+</footer>
+
+<script src="pages.js"></script>
+<script src="navbar.js"></script>
+</body>
+</html>
